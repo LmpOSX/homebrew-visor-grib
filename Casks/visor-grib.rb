@@ -13,16 +13,17 @@ cask "visor-grib" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "Visor GRIB.app"
 
   # Firma ad hoc (sin certificado de Apple): sin la marca de cuarentena macOS
   # no la bloquea la primera vez
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Visor GRIB.app"],
-                   must_succeed: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Visor GRIB.app"],
+        must_succeed:   false,
+        writable_paths: ["{{appdir}}/Visor GRIB.app"]
   end
 
   zap trash: [

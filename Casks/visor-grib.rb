@@ -1,6 +1,6 @@
 cask "visor-grib" do
-  version "0.6.1"
-  sha256 "aaba526e919a41b0c0eb5ca379ecd0187f1a9fa2f03f6440ca7953a41a1139db"
+  version "0.7.0"
+  sha256 "f8c474e09c965e19193fb3b6f534ffe001d62abd8fafd7324b07bcb126536467"
 
   url "https://github.com/LmpOSX/GRIB/releases/download/v#{version}/Visor_GRIB_#{version}_macOS_arm64.dmg"
   name "Visor GRIB"
